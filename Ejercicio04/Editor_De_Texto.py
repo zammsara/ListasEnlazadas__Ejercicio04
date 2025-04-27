@@ -1,6 +1,6 @@
 # Programa de "Editor de texto"
 # Desarrollado por: Aguilera Franco, Estrada Alicia, Duarte Andrea, Sanchez David, Zambrana Sara
-# Versión 1.1
+# Versión 1.2
 # 27.abril.2025
 
 #Descripción del programa: 
@@ -62,28 +62,33 @@ class Historial:
             print(Fore.YELLOW+"\nDocumento vacío.\n")
             return
 
-        # Ir al primer nodo (recorriendo hacia atrás)
+        # Ir al primer nodo válido (recorriendo hacia atrás)
         primero = self.current
         while primero.prev:
             primero = primero.prev
 
         print("\n---------- Documento Actual ----------")
 
-        # Recorrer desde el primer nodo hacia adelante
+        # Recorrer desde el primer nodo hacia current (no más allá)
         actual = primero
         while actual:
             # Mostrar cada parte del documento
             contenido_limpio = actual.description.replace(";", "\n")
             print(contenido_limpio)
+
+            if actual == self.current:
+                break  # IMPORTANTE: solo mostrar hasta el nodo actual
+
             actual = actual.next
 
         print("---------------------------------------\n")
+
 
             
     def mostrar_Texto_Sin_Formato(self):
         if not self.current:
             # Si no hay nodos (el historial está vacío), mostrar mensaje
-            print(Fore.YELLOW+"\nDocumento vacío.\n")
+            print(Fore.YELLOW + "\nDocumento vacío.\n")
             return
 
         # Ir al primer nodo (recorriendo hacia atrás)
@@ -91,14 +96,16 @@ class Historial:
         while primero.prev:
             primero = primero.prev
 
-        # Recorrer desde el primer nodo hacia adelante
+        print("\n---------- Documento Actual ----------")
+
+        # Recorrer desde el primer nodo hasta el nodo actual
         actual = primero
-        while actual:
-            # Reemplazar los ";" por saltos de línea "\n" para mostrar el texto de forma legible
+        while actual != self.current.next:
             contenido_limpio = actual.description.replace(";", "\n")
             print(contenido_limpio)
-            # Avanzar al siguiente nodo
             actual = actual.next
+
+        print("----------------------------------------------------\n")
 
             
 
