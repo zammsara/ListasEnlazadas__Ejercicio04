@@ -1,4 +1,14 @@
-# Editor_De_Texto.py
+# Programa de "Editor de texto"
+# Desarrollado por: Aguilera Franco, Estrada Alicia, Duarte Andrea, Sanchez David, Zambrana Sara
+# Versión 1.2
+# 27.abril.2025
+
+#Descripción del programa: 
+# Editor de texto simple con funcionalidad de deshacer y rehacer
+# Este programa permite al usuario escribir texto, deshacer y rehacer acciones, y mostrar el documento actual.
+# El programa utiliza una lista enlazada para gestionar el historial de acciones.
+# El usuario puede escribir texto, deshacer o rehacer acciones, y mostrar el documento actual.
+
 from colorama import init, Fore, Style
 init(autoreset=True)
 
