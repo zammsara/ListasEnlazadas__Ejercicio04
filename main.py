@@ -1,3 +1,13 @@
+# Desarrollado por: Aguilera Franco, Estrada Alicia, Duarte Andrea, Sanchez David, Zambrana Sara
+# EDITOR DE TEXTO || Versión 1.0
+# 27.abril.2025
+
+#Descripción del programa: 
+# Editor de texto simple con funcionalidad de deshacer y rehacer
+# Este programa permite al usuario escribir texto, deshacer y rehacer acciones, y mostrar el documento actual.
+# El programa utiliza una lista enlazada para gestionar el historial de acciones.
+# El usuario puede escribir texto, deshacer o rehacer acciones, y mostrar el documento actual.
+
 import mod_menu as menu
 from mod_editor import Record 
 from colorama import Fore
@@ -12,8 +22,9 @@ while opcion != 5: #Mientras la opción no sea 5(salir del programa), siga corri
     ##Se asegura de que la opción ingresada sea un número entero.
     try:
         opcion = int(input("Respuesta: "))
+        print("\n")
     except ValueError:
-        print("Opción inválida, por favor escriba un número.")
+        print(Fore.RED+"Opción no válida. Intenta de nuevo.")
         menu.pausa() 
         continue
     

@@ -70,9 +70,9 @@ class Record: #Basicamente mi lista Dobl.Enlazada
             print(Fore.RED + "✖ El editor está vacío.")
         else:
             current = self.head  # Empieza desde la cabeza.
-            content = ""  # Inicializa una cadena vacía para almacenar el contenido.
+            content = ""  
             while current:  # Recorre la lista hasta que no haya más nodos.
-                content += current.valor  # Concatena el valor del nodo al contenido.
+                content += current.valor + " "
                 current = current.next  # Avanza al siguiente nodo.
             
             print(Fore.BLUE + "*" * 30)  # Imprime una línea divisoria en azul
