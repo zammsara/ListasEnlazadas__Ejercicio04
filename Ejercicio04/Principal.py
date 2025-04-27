@@ -1,4 +1,4 @@
-# main.py
+# Programa principal
 from Editor_De_Texto import Historial
 from colorama import init, Fore, Style
 init(autoreset=True)
