@@ -9,8 +9,8 @@
 # El programa utiliza una lista enlazada para gestionar el historial de acciones.
 # El usuario puede escribir texto, deshacer o rehacer acciones, y mostrar el documento actual.
 
-from colorama import init, Fore, Style
-init(autoreset=True)
+from colorama import Fore, Back, Style
+#
 
 class Nodo:
     def __init__(self, description):
@@ -58,56 +58,25 @@ class Historial:
         print(Style.BRIGHT+"Fin del historial")
         
     def mostrar_Texto(self):
-        if not self.current:
+        if self.current:
+            print("\n--- Documento Actual ---")
+            contenido_limpio = self.current.description.replace(";", "\n")
+            print(self.current.description)
+            print("--------------------------\n")
+        else:
             print(Fore.YELLOW+"\nDocumento vacío.\n")
             return
-
-        # Ir al primer nodo válido (recorriendo hacia atrás)
-        primero = self.current
-        while primero.prev:
-            primero = primero.prev
-
-        print("\n---------- Documento Actual ----------")
-
-        # Recorrer desde el primer nodo hacia current (no más allá)
-        actual = primero
-        while actual:
-            # Mostrar cada parte del documento
-            contenido_limpio = actual.description.replace(";", "\n")
-            print(contenido_limpio)
-
-            if actual == self.current:
-                break  # IMPORTANTE: solo mostrar hasta el nodo actual
-
-            actual = actual.next
-
-        print("---------------------------------------\n")
-
+        # Si no hay nodos (el historial está vacío), mostrar mensaje
+        
 
             
     def mostrar_Texto_Sin_Formato(self):
-        if not self.current:
-            # Si no hay nodos (el historial está vacío), mostrar mensaje
-            print(Fore.YELLOW + "\nDocumento vacío.\n")
-            return
-
-        # Ir al primer nodo (recorriendo hacia atrás)
-        primero = self.current
-        while primero.prev:
-            primero = primero.prev
-
-        print("\n---------- Documento Actual ----------")
-
-        # Recorrer desde el primer nodo hasta el nodo actual
-        actual = primero
-        while actual != self.current.next:
-            contenido_limpio = actual.description.replace(";", "\n")
-            print(contenido_limpio)
-            actual = actual.next
-
-        print("----------------------------------------------------\n")
-
+        if self.current:
+            contenido_limpio = self.current.description.replace(";", "\n")
+            print(self.current.description)
             
+        else:
+            print(Fore.LIGHTRED_EX+"\nDocumento vacío.\n")
 
 
 
