@@ -1,3 +1,4 @@
+from colorama import Fore
 class Node: #Mi nodo (Lista Dobl.Enlazada)
     def __init__(self, valor): #Atributos del Nodo
         self.valor = valor
@@ -23,13 +24,14 @@ class Record: #Basicamente mi lista Dobl.Enlazada
             self.tail.next = new_node #Conecta el nodo anterior con el nuevo nodo
             new_node.prev = self.tail
             self.tail = new_node #El nuevo nodo se convierte en la nueva cola de la lista.
-        self.redo_stack.clear()  # Limpiar el redo_stack al agregar una nueva acción
+        print(Fore.GREEN + "✔ Texto agregado correctamente.") 
+        self.redo_stack.clear()  
     
     
     #Deshacer la última acción.
     def remove_action(self):
         if not self.head: #Verifica si la lista está vacía.
-            print("No hay acciones para deshacer.")
+            print(Fore.RED + "✖ No hay acciones para deshacer.")
         #En caso de tener elementos... (Se elimina ultimo nodo de la lista)
         else:
             #Si la lista tiene un solo nodo, se elimina y se establece la cabeza y cola como None. Lo agrega a pila de redo
@@ -41,13 +43,13 @@ class Record: #Basicamente mi lista Dobl.Enlazada
                 self.redo_stack.append(self.tail) 
                 self.tail = self.tail.prev
                 self.tail.next = None
-            print("Acción deshecha.")
+            print(Fore.YELLOW + "↩ Acción deshecha.")  
     
     
     #Rehacer la última acción deshecha.
     def redo_action(self):
         if not self.redo_stack: #Verifica si la pila de redo está vacía.
-            print("No hay acciones para rehacer.")
+            print(Fore.RED + "✖ No hay acciones para rehacer.")  
         #En caso de tener elementos... (Se elimina el último nodo de la pila de redo y se agrega a la lista)
         else:
             redo_node = self.redo_stack.pop() #Saca el último nodo de la pila de redo.
@@ -59,21 +61,25 @@ class Record: #Basicamente mi lista Dobl.Enlazada
                 self.tail.next = redo_node #Conecta el nodo anterior con el nuevo nodo
                 redo_node.prev = self.tail
                 self.tail = redo_node #El nuevo nodo se convierte en la nueva cola de la lista.
-            print("Acción rehecha.")
+            print(Fore.CYAN + "↪ Acción rehecha.") 
     
 
     # Imprime el contenido actual del editor basado en los valores de los nodos.
     def print_editor_content(self):
         if not self.head:  # Verifica si la lista está vacía.
-            print("El editor está vacío.")
+            print(Fore.RED + "✖ El editor está vacío.")
         else:
             current = self.head  # Empieza desde la cabeza.
             content = ""  # Inicializa una cadena vacía para almacenar el contenido.
             while current:  # Recorre la lista hasta que no haya más nodos.
                 content += current.valor  # Concatena el valor del nodo al contenido.
                 current = current.next  # Avanza al siguiente nodo.
-            print("Contenido actual del editor:")
-            print(content)   
+            
+            print(Fore.BLUE + "*" * 30)  # Imprime una línea divisoria en azul
+            print(Fore.BLUE + "CONTENIDO:")  # Mensaje en azul
+            print(Fore.BLUE + "-" * 30)  # Imprime una línea divisoria en azul
+            print(Fore.WHITE + content)  # Contenido en blanco
+            print("\n\n"+Fore.BLUE + "*" * 30)  # Imprime una línea divisoria en azul   
       
             
 
