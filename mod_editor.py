@@ -1,13 +1,13 @@
 from colorama import Fore
 class Node: #Mi nodo (Lista Dobl.Enlazada)
-    def __init__(self, valor): #Atributos del Nodo
+    def __init__(self, valor): 
         self.valor = valor
         self.next = None
         self.prev = None
         
         
 class Record: #Basicamente mi lista Dobl.Enlazada
-    def __init__(self): #Atributos 
+    def __init__(self):  
         self.head = None
         self.tail = None
         self.redo_stack = [] #Pila para almacenar nodos deshechos (Pila: último elemento que se agrega es el primero en salir)
@@ -66,10 +66,10 @@ class Record: #Basicamente mi lista Dobl.Enlazada
 
     # Imprime el contenido actual del editor basado en los valores de los nodos.
     def print_editor_content(self):
-        if not self.head:  # Verifica si la lista está vacía.
+        if not self.head: 
             print(Fore.RED + "✖ El editor está vacío.")
         else:
-            current = self.head  # Empieza desde la cabeza.
+            current = self.head  
             content = ""  
             while current:  # Recorre la lista hasta que no haya más nodos.
                 content += current.valor + " "

@@ -12,14 +12,14 @@ import mod_menu as menu
 from mod_editor import Record 
 from colorama import Fore
 
-opcion = 0 #Variable para almacenar la opción ingresada por el usuario.
+opcion = 0 
 
 editor = Record()
 
 while opcion != 5: #Mientras la opción no sea 5(salir del programa), siga corriendo.
     
-    menu.mostrar_menu() #Muestra el menú de opciones al usuario.
-    ##Se asegura de que la opción ingresada sea un número entero.
+    menu.mostrar_menu() #Menú de opciones al usuario.
+    #Se asegura de que la opción ingresada sea un número entero.
     try:
         opcion = int(input("Respuesta: "))
         print("\n")
@@ -30,25 +30,25 @@ while opcion != 5: #Mientras la opción no sea 5(salir del programa), siga corri
     
     #Evalua la opción ingresada por el usuario.
     match opcion: 
-        case 1: #Agregar texto
+        case 1: #Llama a la función para agregar texto al editor.
             texto = input("Ingrese el texto a agregar: ")
-            editor.add_action(texto) #Llama a la función para agregar texto al editor.
+            editor.add_action(texto) 
             editor.print_editor_content()
             menu.pausa()
             
-        case 2: #Deshacer
-            editor.remove_action() #Llama a la función para deshacer la última acción.
+        case 2: #Llama a la función para deshacer la última acción.
+            editor.remove_action() 
             editor.print_editor_content()
             menu.pausa()
             
-        case 3: #Rehacer
-            editor.redo_action() #Llama a la función para rehacer la última acción deshecha.
+        case 3: #Llama a la función para rehacer la última acción deshecha.
+            editor.redo_action()
             editor.print_editor_content()
             menu.pausa()
             
         case 4: #Ver contenido
-            menu.limpiar_consola() #Limpia la consola antes de mostrar el contenido.
-            editor.print_editor_content() #Llama a la función para imprimir el contenido del editor.
+            menu.limpiar_consola()
+            editor.print_editor_content() 
             menu.pausa()
             
         case 5: #Salir
