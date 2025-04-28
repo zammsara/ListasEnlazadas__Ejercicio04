@@ -1,0 +1,952 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Documentación ejercicio 4.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1e3a36ec-21c6-801e-b0af-eb65c86732e0" class="page sans"><header><img class="page-cover-image" src="Documentacio%CC%81n%20ejercicio%204%201e3a36ec21c6801eb0afeb65c86732e0/Python.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/code_gray.svg"/></div><h1 class="page-title"><em><strong>Documentación ejercicio 4.</strong></em></h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1e3a36ec-21c6-80c8-ab17-d00851389520"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="1e3a36ec-21c6-8027-9d68-dfd6879d12dc" class=""><strong>Problema #4:</strong></p></div></figure><p id="1e3a36ec-21c6-8087-ad38-f8d1c225d467" class="">Se desea implementar el historial de acciones realizadas por un usuario en un editor de texto (como escribir, borrar, pegar, copiar). Cada acción debe guardarse en orden y poder recorrerlas en ambas direcciones, simulando las acciones de Deshacer y Rehacer.</p><p id="1e3a36ec-21c6-802a-b241-d8f581389378" class="">
+</p><p id="1e3a36ec-21c6-8028-b826-d2dddb8cdb9f" class=""><em><strong>Editor_De_Texto.py:</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-808d-95d7-e7f446fbc6c5" class="code"><code class="language-Python">from colorama import Fore, Back, Style</code></pre><p id="1e3a36ec-21c6-80a5-9a22-e673291796f9" class="">Se importa la librería “colorama” para agregar colores a los mensajes que se van a imprimir en consola.</p><p id="1e3a36ec-21c6-809f-b397-cada833f8bda" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-80b4-9ce1-f8e3e8bc85ae" class="code"><code class="language-Python">class Nodo:
+
+def __init__(self, description):
+
+self.description = description
+
+self.prev = None
+
+self.next = None</code></pre><p id="1e3a36ec-21c6-80c6-899a-f0f5f9ad5222" class="">Se crea el Nodo con el argumento “description” para guardar en esa variable el texto o acción realizada.</p><ul id="1e3a36ec-21c6-801c-8bb3-d4c40447862a" class="bulleted-list"><li style="list-style-type:disc">prev apunta al nodo anterior, mientras que next al siguiente.</li></ul><p id="1e3a36ec-21c6-80d1-b231-c847169d2170" class="">Esto es necesario para poder deshacer y rehacer acciones de forma dinámica.</p><p id="1e3a36ec-21c6-804a-b031-e9bbe3d9eafe" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-809c-b003-e0d5b91cca00" class="code"><code class="language-Python">class Historial:
+
+def __init__(self):
+
+self.current = None</code></pre><p id="1e3a36ec-21c6-80c1-b912-c75ec5651cc3" class="">Current es una referencia al nodo actual en el historial. Cuando el historial está vacío o recién creado, current es None, lo que significa que no hay acciones registradas todavía.</p><p id="1e3a36ec-21c6-803c-8b81-d4fea19bd7fa" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-80ea-8c33-c0cf4ada37b3" class="code"><code class="language-Python">def crearNodo(self, description):
+
+# Crear y conectar un nuevo &quot;Nodo&quot;
+
+new_action = Nodo(description)
+
+# Si hay un nodo actual, conectar el nuevo nodo al anterior
+
+if self.current:
+
+self.current.next = new_action
+
+new_action.prev = self.current
+
+self.cuerrent = nw_action</code></pre><p id="1e3a36ec-21c6-8037-b106-ede2881a3dc4" class="">Se le pasa como argumento “self” para referirse a la instancia actual, y “description” para el texto que queremos guardar.</p><p id="1e3a36ec-21c6-80e2-a4cb-c81a92754465" class="">El método crea un nuevo nodo con  “description.”</p><p id="1e3a36ec-21c6-807c-9aae-c6d29576de39" class="">Si ya existe un current (ya hay acciones hechas):</p><ul id="1e3a36ec-21c6-80fc-9244-dc93694f57d3" class="bulleted-list"><li style="list-style-type:disc">Conecta el nuevo nodo como siguiente del current.</li></ul><ul id="1e3a36ec-21c6-8004-8800-cd1bbe255a38" class="bulleted-list"><li style="list-style-type:disc">Conecta el current como anterior del nuevo nodo.</li></ul><p id="1e3a36ec-21c6-80c4-a226-c3ab9b1233ed" class="">Luego, el nuevo nodo pasa a ser el nuevo current, porque es la acción más reciente.</p><p id="1e3a36ec-21c6-800b-94d8-f42151a64a91" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8004-97b1-c33959c49241" class="code"><code class="language-Python">def deshacer(self):
+
+# Moverse a prev
+
+#Si hay un nodo actual y un nodo anterior, moverse al anterior
+
+if self.current and self.current.prev:
+
+print(Fore.GREEN+&quot;\nDeshaciendo acción:&quot;, self.current.description)
+
+self.current = self.current.prev
+
+else:
+
+print(Fore.YELLOW+&quot;\nNo hay más acciones para deshacer.&quot;)</code></pre><p id="1e3a36ec-21c6-801a-84cb-c20c27ec2424" class="">Def deshacer(self): Define el método deshacer dentro de la clase Historial.</p><p id="1e3a36ec-21c6-80d1-a7ce-f7b6c942b8f7" class="">Con “self.current”, se verifica si hay un nodo actual, es decir, si no está vacío el historial.</p><p id="1e3a36ec-21c6-8004-8755-f358ea886046" class="">Con “self.current.prev”, se verifica si el nodo actual tiene nodo anterior (es decir, que no sea el primer nodo)</p><p id="1e3a36ec-21c6-8027-99a1-e77a28cf4c9a" class="">Si ambas condiciones son verdaderas, se pasa al siguiente bloque de código. Donde “self.current.prev”  apunta al nodo anterior al actual.</p><p id="1e3a36ec-21c6-80c4-85ff-fab2d2a6d7eb" class="">Se actualiza “self.current” para que apunte al nodo anterior (retrocediendo en el historial).</p><p id="1e3a36ec-21c6-8008-9f65-e06be163920e" class="">Else si no hay nodo anterior o si el historial está vacío (“self.current” o “self.current.prev”  =  None).</p><p id="1e3a36ec-21c6-80bf-bee7-ed63d2d0c8cc" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-803d-8fe8-db925380e9c6" class="code"><code class="language-Python">def rehacer(self):
+
+# Moverse a next
+
+#Si hay un nodo actual y un nodo siguiente, moverse al siguiente
+
+if self.current and self.current.next:
+
+print(Fore.GREEN+&quot;\nRehaciendo acción:&quot;, self.current.description)
+
+self.current = self.current.next
+
+else:
+
+print(Fore.YELLOW+&quot;No hay más acciones para rehacer.&quot;)</code></pre><p id="1e3a36ec-21c6-80dd-8e78-d7d4462db0db" class="">Funciona de manera similar al método deshacer, pero en dirección contraria.</p><ul id="1e3a36ec-21c6-8074-8824-d9cdcf81c6a9" class="bulleted-list"><li style="list-style-type:disc">“self.current.next” devuelve el nodo siguiente al actual (la acción que viene después).</li></ul><ul id="1e3a36ec-21c6-80d8-8c65-dc230a64491b" class="bulleted-list"><li style="list-style-type:disc">“self.current = self.current.next” mueve el current hacia adelante, hacia la acción deshecha.</li></ul><p id="1e3a36ec-21c6-8024-86fd-ecba329c815f" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-80c5-9b63-e8949fb545ab" class="code"><code class="language-Python">def mostrarHistorial(self):
+
+# Mostrar lista
+
+current = self.current
+
+while current:
+
+print(current.description)
+
+current = current.prev
+
+print(Style.BRIGHT+&quot;Fin del historial&quot;)</code></pre><p id="1e3a36ec-21c6-80ed-993e-fc5fefa2da38" class="">Con “current = self.current”, se asigna al nodo actual (último nodo agregado al historial).  Esto es porque el historial se recorre hacia atrás desde el nodo actual.</p><p id="1e3a36ec-21c6-8094-8b25-ce9151768ae2" class="">Se pasa al while, que se ejecutará mientras haya nodos en el historial. Comienza con el nodo actual y va hacia atrás (current.prev).</p><p id="1e3a36ec-21c6-809b-b369-d69b0f67edcb" class="">En cada iteración del bucle, se imprime la descripción de la acción almacenada en el nodo actual.</p><p id="1e3a36ec-21c6-8009-854c-d1d981b64155" class="">Se utiliza “current = current.prev” para después de imprimir la descripción, se mueva al nodo anterior (prev) para seguir mostrando las acciones anteriores.</p><p id="1e3a36ec-21c6-80a2-bc54-dcbd3e2eba2f" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-800c-aa04-eaf1c5514233" class="code"><code class="language-Python">def mostrar_Texto(self):
+
+if self.current:
+
+print(&quot;\n--- Documento Actual ---&quot;)
+
+contenido_limpio = self.current.description.replace(&quot;;&quot;, &quot;\n&quot;)
+
+print(self.current.description)
+
+print(&quot;--------------------------\n&quot;)
+
+else:
+
+print(Fore.YELLOW+&quot;\nDocumento vacío.\n&quot;)
+
+return
+
+# Si no hay nodos (el historial está vacío), mostrar mensaje</code></pre><p id="1e3a36ec-21c6-8011-b56e-f21090762137" class="">“If self.current” verifica si hay un nodo actual. Si self.current es None, significa que no hay acciones en el historial.</p><p id="1e3a36ec-21c6-8020-bd5a-e61d983a2ff3" class=""><mark class="highlight-blue">contenido_limpio = self.current.description.replace(&quot;;&quot;, &quot;\n&quot;)</mark>: Se reemplazan todos los puntos y coma por saltos de línea. Esto se hace para formatear el contenido del texto de manera que cada acción registrada se muestre en una nueva línea, pero no se usa en el print, ya que “self.current.description” se imprime directamente.</p><p id="1e3a36ec-21c6-80a9-bff4-cfc5b94e588f" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-806f-928c-cce446b47e76" class="code"><code class="language-Python">def mostrar_Texto_Sin_Formato(self):
+
+if self.current:
+
+contenido_limpio = self.current.description.replace(&quot;;&quot;, &quot;\n&quot;)
+
+print(self.current.description)
+
+else:
+
+print(Fore.LIGHTRED_EX+&quot;\nDocumento vacío.\n&quot;)</code></pre><p id="1e3a36ec-21c6-802c-ae3e-dfdcf32c8855" class="">Muestra el contenido de la acción actual sin ningún formato especial (mantiene el texto tal como está).</p><p id="1e3a36ec-21c6-80b0-8b54-f41c7bb5fcf5" class="">
+</p><p id="1e3a36ec-21c6-8088-9b37-ec3ffa3237fe" class=""><em><strong>Main.py:</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8053-a25f-e90ebf24aafb" class="code"><code class="language-Python">from Editor_De_Texto import Historial</code></pre><p id="1e3a36ec-21c6-8013-bb7a-dcdaee523304" class="">Importa la clase Historial desde el archivo Editor_De_Texto.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8097-b1b9-d63db1894955" class="code"><code class="language-Python">import os
+
+from colorama import init, Fore, Style
+
+init(autoreset=True)</code></pre><p id="1e3a36ec-21c6-8067-a788-f503aa0ccf6b" class=""><br/>Inicialización de Colorama.<br/><br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8074-bf56-d045798f4572" class="code"><code class="language-Python">def clear():
+
+# Limpiar la consola
+
+os.system(&#x27;clear&#x27;)
+
+os.system(&#x27;cls&#x27;)
+
+def contar_palabras(texto):
+
+palabras = texto.replace(&quot;\n&quot;, &quot; &quot;).split()
+
+return len(palabras)</code></pre><p id="1e3a36ec-21c6-8026-882d-d9acfbb28a2a" class="">El método “texto.replace(&quot;\n&quot;, &quot; &quot;)”  reemplaza todos los salto de línea con un espacio en blanco, y el método “split()”, se utiliza para dividir el texto en palabras. Este método divide la cadena en una lista de palabras separadas por espacios. Si hay múltiples espacios consecutivos, split() los ignora y divide solo por los espacios.</p><p id="1e3a36ec-21c6-80af-826a-e910db36a127" class="">Se utiliza la función “len()” para contar el número de elementos dentro de la lista.</p><p id="1e3a36ec-21c6-8002-a06c-dbb9aad01147" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8072-8b41-e33856245057" class="code"><code class="language-Python">def main():
+
+editorHistorial = Historial()
+
+editorHistorial.crearNodo(&quot;&quot;) #Acá creamos un nodo vacío</code></pre><p id="1e3a36ec-21c6-80bc-a095-d96c2adea1b4" class=""><mark class="highlight-blue">“editorHistorial = Historial()” </mark>Crea una instancia de la clase Historial, que gestionará el historial de las acciones realizadas en el editor de texto.</p><p id="1e3a36ec-21c6-800b-a6bb-c4b441b05ab2" class=""><mark class="highlight-blue">“editorHistorial.crearNodo(&quot;&quot;)”</mark> Crea el primer nodo vacío en el historial. Esto inicializa la lista de historial.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8074-bbb3-fa7ff5fa593e" class="code"><code class="language-Python">lineas_maximas = 10</code></pre><p id="1e3a36ec-21c6-806d-8d8b-ce372a156b58" class="">Número máximo de líneas = 10</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-806a-bf86-c510f460fe01" class="code"><code class="language-Python">while True:
+
+clear()
+
+print(&#x27;=&#x27; * 35)
+
+print(&quot;Editor de texto&quot;)
+
+print(&#x27;=&#x27; * 35)
+
+print(&quot;1. Escribir Texto&quot;)
+
+print(&quot;2. Deshacer&quot;)
+
+print(&quot;3. Rehacer&quot;)
+
+print(&quot;4. Mostrar Documento&quot;)
+
+print(&quot;5. Salir&quot;)
+
+print(&#x27;=&#x27; * 35)
+
+try:
+
+opc = int(input(&quot;Seleccione una opción: &quot;))
+
+except ValueError:
+
+print(Fore.RED+&quot;Ingrese un número válido.\n&quot;)
+
+continue</code></pre><p id="1e3a36ec-21c6-803a-82ec-ca880d9cbac0" class="">Se valida que sea un número, en caso contrario, se vuelve a pedir el valor.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8082-b8cf-cc17312e05af" class="code"><code class="language-Python">match opc:
+
+# Escribir texto
+
+case 1:
+
+clear()
+
+# Obtenemos el texto actual del documento
+
+texto_actual = editorHistorial.current.description
+
+# Pedimos al usuario que escriba nuevo texto
+
+nuevo_texto = input(&quot;Escribe el texto que quieres agregar: &quot;)
+
+# Procesar si hay punto y coma para hacer saltos de línea
+
+nuevo_texto = nuevo_texto.replace(&quot;;&quot;, &quot;\n&quot;)
+
+# Concatenar el texto nuevo
+
+if len(texto_actual) &gt; 50:
+
+texto_actualizado = texto_actual + &quot;\n&quot; + nuevo_texto
+
+else:
+
+texto_actualizado = texto_actual + &quot; &quot; + nuevo_texto
+
+# Separar líneas
+
+lineas = texto_actualizado.split(&quot;\n&quot;)
+
+if len(lineas) &lt;= lineas_maximas:
+
+# Si no supera el límite, crear un solo nodo
+
+editorHistorial.crearNodo(texto_actualizado)
+
+else:
+
+# Si supera el límite, dividir en páginas
+
+pagina1 = &quot;\n&quot;.join(lineas[:lineas_maximas])
+
+pagina2 = &quot;\n&quot;.join(lineas[lineas_maximas:])
+
+editorHistorial.crearNodo(pagina1)
+
+editorHistorial.crearNodo(&quot;---------- Nueva Página ----------\n&quot; + pagina2)
+
+# Mostrar el texto actualizado
+
+print(Fore.GREEN+&quot;\nTexto actualizado:\n&quot;)
+
+editorHistorial.mostrar_Texto_Sin_Formato()
+
+# Mostrar contador de palabras
+
+cantidad_palabras = contar_palabras(texto_actualizado)
+
+print(&quot;\n---------------------------------------&quot;)
+
+print(f&quot;Número de palabras actuales: {cantidad_palabras}&quot;)
+
+print(&quot;---------------------------------------\n&quot;)
+
+input(Fore.YELLOW+&quot;Presiona Enter para continuar...&quot;)</code></pre><p id="1e3a36ec-21c6-8048-9245-fa552a906290" class="">Luego de que el usuario ingresa un nuevo texto, se actualiza el contenido combinándolo con el texto que ya existía. Se hace una validación:</p><p id="1e3a36ec-21c6-80ea-9506-db526f2dc587" class="">Si el texto anterior tenía más de<strong> 50 caracteres (len(texto_actual) &gt; 50)</strong>, entonces se concatena el nuevo texto en una nueva línea (\n).</p><p id="1e3a36ec-21c6-802d-9da9-c0d0c5f593c7" class="">Si no supera los <strong>50 caracteres,</strong> se agrega el nuevo texto separado por un espacio.</p><p id="1e3a36ec-21c6-80f4-9ac8-cf51508238cf" class="">Si el usuario escribe:  <strong>“;”</strong> al final de la palabra, crea un salto de linea</p><p id="1e3a36ec-21c6-8095-985a-da7ba1ac9d2d" class="">Después, con<strong> “texto_actualizado.split(&quot;\n&quot;)”</strong>, se separa el texto en líneas, utilizando el salto de línea como delimitador. Esto convierte el texto en una lista de líneas individuales.</p><p id="1e3a36ec-21c6-80fc-9797-f42966f827f0" class="">Luego se analiza cuántas líneas resultaron:</p><p id="1e3a36ec-21c6-8028-b1d4-edbc388301d4" class="">Si la cantidad de líneas es menor o igual a <strong>lineas_maximas (10 líneas)</strong>, se guarda todo el texto en un solo nodo del historial usando editorHistorial.crearNodo(texto_actualizado).</p><p id="1e3a36ec-21c6-80e5-b3ba-c7da5b3d06e0" class="">Si supera las <strong>10 </strong>líneas, entonces el texto se divide en dos partes:</p><p id="1e3a36ec-21c6-80bd-be92-c8360c95145f" class="">pagina #1 contiene las primeras 10 líneas.</p><p id="1e3a36ec-21c6-8034-91d8-e2ae50f305ab" class="">pagina #2 contiene el resto de las líneas.</p><p id="1e3a36ec-21c6-8035-ad6f-dc0276e7745e" class="">Una vez actualizado el historial, se imprime el texto actualizado usando el método “mostrar_Texto_Sin_Formato()”, que muestra el contenido tal cual se guardó en el nodo.</p><p id="1e3a36ec-21c6-8050-8bd4-e334e9cc8c09" class="">Luego, se calcula cuántas palabras tiene el texto actualizado:</p><p id="1e3a36ec-21c6-80d7-8db0-e62de8a7d470" class="">Se usa la función “contar_palabras(texto_actualizado)”, que reemplaza los saltos de línea por espacios y divide el texto en palabras para contar cuántas hay.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8073-b186-e7590fb63513" class="code"><code class="language-Python"># Deshacer
+
+case 2:
+
+editorHistorial.deshacer()
+
+editorHistorial.mostrar_Texto()
+
+input(Fore.YELLOW+&quot;Presiona Enter para continuar...&quot;)</code></pre><p id="1e3a36ec-21c6-8081-a970-ccf84bc45261" class=""><mark class="highlight-blue">editorHistorial.deshacer(): </mark>Llama al método deshacer del historial para revertir la última acción.</p><p id="1e3a36ec-21c6-8030-8a65-f6b66ddae8a8" class=""><mark class="highlight-blue">editorHistorial.mostrar_Texto():</mark> Muestra el texto después de deshacer la acción.</p><p id="1e3a36ec-21c6-80c0-a230-eac822d8194a" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-802a-ad6b-f8301e2ca6f6" class="code"><code class="language-Python"># Rehacer
+
+case 3:
+
+editorHistorial.rehacer()
+
+editorHistorial.mostrar_Texto()
+
+input(Fore.YELLOW+&quot;Presiona Enter para continuar...&quot;)</code></pre><p id="1e3a36ec-21c6-80c8-ab23-fce1672aa5f3" class=""><mark class="highlight-blue">editorHistorial.rehacer(): </mark>Llama al método rehacer para reejecutar la acción que fue deshecha.</p><p id="1e3a36ec-21c6-807f-b4f6-e7d0247b53c6" class=""><mark class="highlight-blue">editorHistorial.mostrar_Texto(): </mark>Muestra el texto después de rehacer la acción.</p><p id="1e3a36ec-21c6-80a5-8063-f26aa55c613e" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-801f-9236-efacb82c5eb7" class="code"><code class="language-Python"># Mostrar documento
+
+case 4:
+
+#editorHistorial.mostrarHistorial()
+
+editorHistorial.mostrar_Texto()
+
+input(Fore.YELLOW+&quot;Presiona Enter para continuar...&quot;)</code></pre><p id="1e3a36ec-21c6-8089-b320-c6b3656f1309" class=""><mark class="highlight-blue">editorHistorial.mostrar_Texto(): </mark>Muestra el texto actual del documento.</p><p id="1e3a36ec-21c6-8054-9b68-d7ff17215975" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e3a36ec-21c6-8009-a875-d13232fc44dc" class="code"><code class="language-Python"># Salir
+
+case 5:
+
+print(Fore.CYAN+&quot;\nSaliendo del editor de texto.&quot;)
+
+print(Fore.CYAN+&quot;Gracias por usar el programa. ¡Hasta luego! 👋&quot;)
+
+break
+
+case _:
+
+print(Fore.RED+&quot;Opción no válida. Intenta de nuevo.&quot;)
+
+input(Fore.YELLOW+&quot;Presiona Enter para continuar...&quot;)
+
+if __name__ == &quot;__main__&quot;:
+
+main()</code></pre><p id="1e3a36ec-21c6-8047-9c96-fcb293c10e81" class="">Se ejecuta la función main() solamente si ese archivo se está corriendo directamente. Así, si alguien importa este archivo como módulo en otro programa, el main() no se ejecutará automáticamente.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
