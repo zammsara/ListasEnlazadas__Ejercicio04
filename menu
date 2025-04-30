@@ -1,0 +1,46 @@
+import os
+from colorama import init, Fore, Style
+
+init(autoreset=True)
+
+def clear():
+    # Limpiar la consola
+    os.system('clear') 
+    os.system('cls')
+
+while True:
+    clear()
+    print("-"*35)
+    print("1. Ordenar números pares e impares. ")
+    print("2. Ordenar números de mayor a menor. ")
+    print("3. Convertir en código binario. ")
+    print("4. Salir.")
+    print("-"*35)
+
+    try:
+        op = int(input("Seleccione una opción: "))
+    except ValueError:
+        print(Fore.RED+"Ingrese un número válido.\n")
+        continue
+
+    match op: 
+        case 1:
+            clear()
+            #ejercicio1
+        
+        case 2:
+            clear()
+            #ejercicio2
+
+        case 3:
+            clear()
+            #ejercicio 3
+        case 4:
+            print(Fore.CYAN+"\nSaliendo del editor de texto.")
+            print(Fore.CYAN+"Gracias por usar el programa. ¡Hasta luego! 👋")
+                
+            break
+            
+        case _:
+            print(Fore.RED+"Opción no válida. Intenta de nuevo.")
+            input(Fore.YELLOW+"Presiona Enter para continuar...")
