@@ -29,7 +29,7 @@ def separarParImpar(pila):
     # invertimos las listas al unirlas
     resultado = []
 
-    # Primero agregamos los números pares al resultado
+    # Primero agregamos los números pares al resultados
     while pares:
         # Extraemos el último número de la lista de pares (recuerda que el orden se invierte al usar pop)
         resultado.append(pares.pop())
