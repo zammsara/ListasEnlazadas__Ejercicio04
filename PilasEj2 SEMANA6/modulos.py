@@ -1,14 +1,36 @@
 
 
-def ordena(pila): # se proporciona el parametro pila
-    lista_temp = [] # se crea una lista temporal donde se alamcenaran los valores ingresados por el ususario
-    while pila:
-        lista_temp.append(pila.pop()) # Sacamos con (pop) los elementos de la pila del ultimo al primero y los agregamos a la lista temporal
+class Pila:
+    def __init__(self):
+        self.elementos = []  # Lista interna para almacenar los elementos
 
-    lista_temp.sort(reverse=True) # esto se utiliza para ordenar la pila
+    def push(self, valor):
+        self.elementos.append(valor)  # Agrega un valor a la pila (tope)
 
-    pila_ordenada = [] # se crea una lista la cual almacenara ya los valores ordenalos de la pila
-    for num in lista_temp:
-        pila_ordenada.append(num) # se agregan los eleementos ordenados a la nueva pila
+    def pop(self):
+        if not self.esta_vacia():
+            return self.elementos.pop()  # Elimina y devuelve el tope de la pila
 
-    return pila_ordenada # retorna la pila ya ordenada de mayor a menor
+    def esta_vacia(self):
+        return len(self.elementos) == 0  # Verifica si la pila está vacía
+
+    def mostrar(self):
+        return self.elementos.copy()  # Devuelve una copia de la pila
+
+    def ordenar(self):
+         # Usamos una lista temporal para sacar todos los elementos
+        lista_temp = []
+
+        # Sacamos todos los elementos de la pila y los guardamos en lista_temp
+        while not self.esta_vacia():
+            lista_temp.append(self.pop())
+
+        # Ordenamos la lista de mayor a menor usando sort
+        lista_temp.sort(reverse=True)
+
+        # Creamos una nueva pila ordenada
+        pila_ordenada = Pila()
+        for num in lista_temp:
+            pila_ordenada.push(num)
+
+        return pila_ordenada  # Retornamos la pila ordenada

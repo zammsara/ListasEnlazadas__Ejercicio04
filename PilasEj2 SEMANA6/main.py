@@ -1,4 +1,4 @@
-from modulos import ordena
+from modulos import Pila
 
 
 
@@ -22,15 +22,14 @@ if numero != "":
     valores.append(int(numero))
 
 
-# Creamos la pila original
-pila = []
-
-# Agregamos los valores a la pila 
+# Crear pila e insertar valores
+mi_pila = Pila()
 for num in valores:
-    pila.append(num)
+    mi_pila.push(num)
 
-# Ordenamos la pila
-resultado = ordena(pila)
+    
+# Ordenar la pila
+pila_ordenada = mi_pila.ordenar()
 
-# Mostramos el resultado final
-print("Pila ordenada (de mayor a menor):", resultado)
+# Mostrar resultado
+print("Pila ordenada (de mayor a menor):", pila_ordenada.mostrar())
